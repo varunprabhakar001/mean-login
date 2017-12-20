@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MEAN Stack User Registration and Login Example Application</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body style="width: 60%; margin:0 auto;">
+   <div class="" ng-app="myApp">
+  <div class="">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+    
+    <div ui-view class="col-md-12"></div>
+    
+  </div>
+  
+  <script type="text/ng-template" id="login.html">
+    <div class="form-container">
+      <h2>Login</h2>
+          <div class="alert alert-danger" ng-if="error">{{ error }}</div>
+      <form  ng-submit="formSubmit()">
+          <div class="form-group">
+              <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" ng-model="username" placeholder="username" required=""/>
+          </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" ng-model="password" placeholder="password" required=""/>
+          </div>
+          <div class="form-group">
+              <button type="submit" id="submit" class="btn btn-primary">Login</button>
+          </div>
+      </form>
+    </div>
+  </script>
+  
+  <script type="text/ng-template" id="home.html">
+    <div class="form-container">
+      <h3>Home Page</h3>
+    
+      <form ng-submit="userUpdate()">
+
+          <div class="form-group">
+              <label for="firstname">First Name</label>
+            <input type="text" class="form-control" ng-model="user.firstname" placeholder="firstname" required=""/>
+          </div>
+
+          <div class="form-group">
+              <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" ng-model="user.lastname" placeholder="lastname" required=""/>
+          </div>
+
+          <div class="form-group">
+              <label for="password">Password</label>
+            <input type="password" class="form-control" id="passwordUpdate" ng-model="user.password" placeholder="password" required=""/>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" id="submitUpdate" class="btn btn-primary">Update Profile</button>
+            <a ui-sref="login" class="btn btn-link">Logout</a>
+          </div>
+      </form>
+    </div>
+  </script>
+</div>
+
+    <!-- external scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+
+    <!-- application scripts -->
+    <script src="app.js"></script>
+    
+</body>
+</html>
